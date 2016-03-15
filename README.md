@@ -1,0 +1,2 @@
+# swipes-view-android
+This library uses the {@link android.widget.AdapterView} subclass {@link us.the.mac.swipes.SwipesView}. The SwipesView implementation allows 4 directional swiping (based loosely upon Tinder's Like/Nope Swiping action) for any type of view (or Card). The directions can be enabled selectively, and this example uses only the right and down {@link us.the.mac.swipes.SwipesView.Directions} in the activity_swipes.xml file.
