@@ -1,12 +1,12 @@
 # Swipes View Library (Android)
-SwipesView displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
+[SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
 
 ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016012902.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016013504.gif "SwipesView")
 
 Setup
 -----
 
-The SwipesView can be defined programmatically in Java:
+The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can be defined programmatically in Java:
     
     //The array defines which directions the SwipesView will swipe to
     Directions directions[] = new Directions[] { Directions.LEFT, Directions.RIGHT };
@@ -31,11 +31,11 @@ Or in an Android XML Layout:
 Passing Data
 ---------------
 
-Data must be passed to the SwipesView from a SwipesAdapter subclass:
+Data must be passed to the [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) from a [SwipesAdapter](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesAdapter.html) subclass:
 
 	swipesView.setAdapter(new BasicExampleSwipesAdapter(this, R.layout.card_item));
 	
-A basic example of a SwipesAdadpter subclass would look as follows:
+A basic example of a [SwipesAdapter](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesAdapter.html) subclass would look as follows:
 	
 	class BasicExampleSwipesAdapter extends SwipesAdapter<Integer> {
 		ArrayList<Integer> mInts = new ArrayList<Integer>(Arrays.asList(new Integer[]{
@@ -62,7 +62,7 @@ A basic example of a SwipesAdadpter subclass would look as follows:
 Automating Swipes
 ---------------
 
-The SwipesView can swipe programatically as well, ideally through a button click (or some other action):
+The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can swipe programatically as well, ideally through a button click (or some other action):
 
 	Button swipeLeftButton = new Button(context);
 	swipeLeftButton.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,10 @@ Further Reading
 
 See the [Javadocs](http://operators.github.io/swipes-view-android) for more on the [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html), or [SwipesAdapter](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesAdapter.html) functions.
 
-See the [MAC Guides](#) for detailed examples of how to use the SwipesView, like with [ViewGroup Cards](#) or with [SwipesViewListeners](#).
+See the [MAC Guides](#) for detailed examples of how to use the [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html).
+* Like with a [Basic Example](#)
+* Interacting with other [View Components](#)
+* Or with [SwipesViewListeners](#).
 
 See the [Android Javadocs](http://developer.android.com/reference/android/widget/AdapterView.html) for more on [AdapterView](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/AdapterView.java), for a peek into the SwipesView origins.
 
