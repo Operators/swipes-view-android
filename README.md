@@ -1,7 +1,7 @@
 # Swipes View Library (Android)
 SwipesView displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
 
-![swipes](https://raw.github.com/jacobmoncur/QuiltViewLibrary/master/nexus7.png "SwipesView") ![swipes](https://raw.github.com/jacobmoncur/QuiltViewLibrary/master/nexus7_mayer.png "SwipesView")
+![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016005108.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016004639.gif "SwipesView")
 
 Setup
 -----
@@ -87,7 +87,7 @@ The SwipesView can supercede the finger swipe programatically, ideally through a
 Further Reading
 ---------------
 
-See the [Javadocs](http://operators.github.io/swipes-view-android) for more on the [SwipesView](http://operators.github.io/swipes-view-android#SwipesView), [SwipesAdapter](http://operators.github.io/swipes-view-android#SwipesAdapter) functions.
+See the [Javadocs](http://operators.github.io/swipes-view-android) for more on the [SwipesView](http://operators.github.io/swipes-view-android#SwipesView), or [SwipesAdapter](http://operators.github.io/swipes-view-android#SwipesAdapter) functions.
 
 See the [MAC Guides](#) for detailed examples of how to use the SwipesView, like with [ImageViews](#) or [ViewGroups](#).
 
