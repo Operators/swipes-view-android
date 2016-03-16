@@ -1,7 +1,7 @@
 # Swipes View Library (Android)
 SwipesView displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
 
-![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016005108.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016004639.gif "SwipesView")
+![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016012902.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016013504.gif "SwipesView")
 
 Setup
 -----
@@ -31,7 +31,7 @@ Or in an Android XML Layout:
 Passing Data
 ---------------
 
-Data must be passed to the SwipesView inside of a SwipesAdapter subclass:
+Data must be passed to the SwipesView from a SwipesAdapter subclass:
 
 	swipesView.setAdapter(new BasicExampleSwipesAdapter(this, R.layout.card_item));
 	
@@ -62,7 +62,7 @@ A basic example of a SwipesAdadpter subclass would look as follows:
 Automating Swipes
 ---------------
 
-The SwipesView can supercede the finger swipe programatically, ideally through a button click or command:
+The SwipesView can swipe programatically as well, ideally through a button click (or some other action):
 
 	Button swipeLeftButton = new Button(context);
 	swipeLeftButton.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ Further Reading
 
 See the [Javadocs](http://operators.github.io/swipes-view-android) for more on the [SwipesView](http://operators.github.io/swipes-view-android#SwipesView), or [SwipesAdapter](http://operators.github.io/swipes-view-android#SwipesAdapter) functions.
 
-See the [MAC Guides](#) for detailed examples of how to use the SwipesView, like with [ImageViews](#) or [ViewGroups](#).
+See the [MAC Guides](#) for detailed examples of how to use the SwipesView, like with [ViewGroup Cards](#) or with [SwipesViewListeners](#).
 
 See the [Android Javadocs](http://developer.android.com/reference/android/widget/AdapterView.html) for more on [AdapterView](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/AdapterView.java), for a peek into the SwipesView origins.
 
