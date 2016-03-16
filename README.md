@@ -87,7 +87,7 @@ The SwipesView can swipe programatically as well, ideally through a button click
 Further Reading
 ---------------
 
-See the [Javadocs](http://operators.github.io/swipes-view-android) for more on the [SwipesView](http://operators.github.io/swipes-view-android#SwipesView), or [SwipesAdapter](http://operators.github.io/swipes-view-android#SwipesAdapter) functions.
+See the [Javadocs](http://operators.github.io/swipes-view-android/com/operators/swipes/package-summary.html) for more on the [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html), or [SwipesAdapter](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesAdapter.html) functions.
 
 See the [MAC Guides](#) for detailed examples of how to use the SwipesView, like with [ViewGroup Cards](#) or with [SwipesViewListeners](#).
 
