@@ -6,10 +6,19 @@ SwipesView displays **views (or cards) to be swiped** in all **directions of you
 Setup
 -----
 
-The SwipesView can be defined in XML:
+The SwipesView can be defined programmatically in Java:
+    
+    //The array defines which directions the SwipesView will swipe to
+    Directions directions[] = new Directions[] { Directions.LEFT, Directions.RIGHT };
+    
+    SwipesView swipesView = new SwipesView(context); //(SwipesView) findViewById(R.id.swipes);
+	swipesView.setAllowedDirections(directions); //setAllowedDirections(Directions.RIGHT, Directions.DOWN);
+        
+    
+Or in an Android XML Layout:
 
     <?xml version="1.0" encoding="utf-8"?>
-	<us.the.mac.swipes.SwipesView 
+	<com.operators.swipes.SwipesView 
 	    xmlns:android="http://schemas.android.com/apk/res/android"
 	    xmlns:swipes="http://schemas.android.com/apk/res-auto"
 	    android:id="@+id/container"
@@ -18,19 +27,11 @@ The SwipesView can be defined in XML:
 	    android:background="#40aeaeae"
 	    swipes:directions="right|down"
 	    swipes:swipe_rotation="15.5" />
-    
-Or programmatically
-    
-    //The array defines which directions the SwipesView will swipe to
-    Directions directions[] = new Directions[] { Directions.RIGHT, Directions.DOWN };
-    
-    SwipesView swipesView = new SwipesView(context); //(SwipesView) findViewById(R.id.swipes);
-	swipesView.setAllowedDirections(directions); //setAllowedDirections(Directions.RIGHT, Directions.DOWN);
-        
+	    
 Passing Data
 ---------------
 
-Data must be passed to the SwipesView inside of the SwipesAdapter:
+Data must be passed to the SwipesView inside of a SwipesAdapter subclass:
 
 	swipesView.setAdapter(new BasicExampleSwipesAdapter(this, R.layout.card_item));
 	
@@ -86,13 +87,13 @@ The SwipesView can supercede the finger swipe programatically, ideally through a
 Further Reading
 ---------------
 
-See the [Javadocs](https://pages.github.com/Operators/swipes-view-android) for more on the SwipesView, SwipesAdapter functions.
+See the [Javadocs](http://operators.github.io/swipes-view-android) for more on the [SwipesView](http://operators.github.io/swipes-view-android#SwipesView), [SwipesAdapter](http://operators.github.io/swipes-view-android#SwipesAdapter) functions.
 
-See the [MAC Guide](#) for detailed examples of how to use the SwipesView.
+See the [MAC Guides](#) for detailed examples of how to use the SwipesView, like with [ImageViews](#) or [ViewGroups](#).
 
-See the [Android Javadocs](#) for more on AdapterView, for a peek into the SwipesView origins.
+See the [Android Javadocs](http://developer.android.com/reference/android/widget/AdapterView.html) for more on [AdapterView](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/AdapterView.java), for a peek into the SwipesView origins.
 
-See the [Android Javadocs](#) for more on BaseAdapter, to see how the SwipesAdapter started.
+See the [Android Javadocs](http://developer.android.com/reference/android/widget/BaseAdapter.html) for more on [BaseAdapter](https://github.com/android/platform_frameworks_base/blob/7de7e0b0dd61acba813dec3a07d29f1d62026470/core/java/android/widget/BaseAdapter.java), to see how the SwipesAdapter started.
 
 	
 LICENSE
