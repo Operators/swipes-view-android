@@ -91,14 +91,14 @@ Swiping With Self Contained Views
 The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can swipe with self contained views like WebView as well. We simply have to add the SwipesView.onTouch static reference:
 	
 	WebView wv = new WebView(context) {
-        @Override
-        public boolean onTouchEvent(MotionEvent event) {
+        @Override public boolean onTouchEvent(MotionEvent event) {
         		SwipesView.onTouch(event);
             return super.onTouchEvent(event);
         }
     	};
     	
 ...or subclass instead:
+
     	class CustomWebView extends WebView {
     		public CustomWebView(Context context) {
     			
@@ -111,6 +111,8 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
         }
     	};
 	
+...using subclass, add reference in XML:
+	
     <com.operators.swipes.CustomWebView
         android:id="@+id/swipesWebView"
 		... />
@@ -119,30 +121,36 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 Listening For Swipe Actions
 ---------------
 
-The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can have multiple listeners, where Card components can listen for sucessful swipes as well as Activities or Fragments simultaneously:
+The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can have multiple listeners, where Card components can listen for sucessful swipes as well as Activities or Fragments all simultaneously:
 	
 	
 * First update your class/interface to implement/extend [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
 
 	class YourClass implements SwipesView.OnSwipeListener {
-		...
+		@Override public void onThresholdChange(View card, float threshold) { ... }
+		@Override public void onDirectionSwipe(View card, Directions direction) { ... }
+		@Override public void onSuccessfulSwipe(View card, Directions direction) { ... }
 	}
 	
 	inteface YourInterface extends SwipesView.OnSwipeListener {
-		...
+		@Override public void onThresholdChange(View card, float threshold);
+		@Override public void onDirectionSwipe(View card, Directions direction);
+		@Override public void onSuccessfulSwipe(View card, Directions direction);
 	}
 	
-* Next add the addSwipesListener reference along with the creation of your implementation of [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html) and you are then ready to listen for [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)), [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) or 
+* Next place the addSwipesListener reference along with the creation of your implementation of [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html). Once that is complete you are ready to listen for [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)), [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) or [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)).
 
 	SwipesView.addSwipesListener(this);
+
 	
-* The [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)) Swipe Action provides feedback on what amount the swipe is complete. An Example of this would look as follows:
+	* The [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)) Swipe Action provides feedback on what amount the swipe is complete. An Example of this would look as follows:
 
 
-* The [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the swipe is going. An Example of this would look as follows:
+	* The [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the swipe is going. An Example of this would look as follows:
 
 
-* The [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the sucessful swipe was going. An Example of this would look as follows:
+	* The [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the sucessful swipe was going. An Example of this would look as follows:
+
 
 
 Further Reading
@@ -163,7 +171,7 @@ See the [Android Javadocs](http://developer.android.com/reference/android/widget
 LICENSE
 ===============
 The MIT License (MIT)
-Copyright (c) 2016 Christopher
+Copyright (c) 2016 Operators
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
