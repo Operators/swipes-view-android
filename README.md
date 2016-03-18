@@ -7,16 +7,16 @@ Setup
 -----
 
 The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can be defined programmatically in Java:
-    
+```    
     //The array defines which directions the SwipesView will swipe to
     Directions directions[] = new Directions[] { Directions.LEFT, Directions.RIGHT };
     
     SwipesView swipesView = new SwipesView(context); //(SwipesView) findViewById(R.id.swipes);
 	swipesView.setAllowedDirections(directions); //setAllowedDirections(Directions.RIGHT, Directions.DOWN);
-        
+```
     
 Or in an Android XML Layout:
-
+```
     <?xml version="1.0" encoding="utf-8"?>
 	<com.operators.swipes.SwipesView 
 	    xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,7 +27,7 @@ Or in an Android XML Layout:
 	    android:background="#40aeaeae"
 	    swipes:directions="right|down"
 	    swipes:swipe_rotation="15.5" />
-	    
+```	    
 Passing Data
 ---------------
 
@@ -36,7 +36,7 @@ Data must be passed to the [SwipesView](http://operators.github.io/swipes-view-a
 	swipesView.setAdapter(new BasicExampleSwipesAdapter(this, R.layout.card_item));
 	
 A basic example of a [SwipesAdapter](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesAdapter.html) subclass would look as follows:
-	
+```	
 	class BasicExampleSwipesAdapter extends SwipesAdapter<Integer> {
 		ArrayList<Integer> mInts = new ArrayList<Integer>(Arrays.asList(new Integer[]{
 			1, 11, 111
@@ -57,13 +57,13 @@ A basic example of a [SwipesAdapter](http://operators.github.io/swipes-view-andr
 		@Override public void removeItem(int position) { mInts.remove(position); }
 		@Override public int getCount() { return mInts.size(); }
 	}
-
+```
 
 Automating Swipes
 ---------------
 
 The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can swipe programatically as well, ideally through a button click (or some other action):
-
+```
 	Button swipeLeftButton = new Button(context);
 	swipeLeftButton.setOnClickListener(new View.OnClickListener() {
 		@Override public void onClick(View v) { swipesView.performSwipeLeft(); }
@@ -83,35 +83,35 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 	swipeDownButton.setOnClickListener(new View.OnClickListener() {
 		@Override public void onClick(View v) { swipesView.performSwipeDown(); }
 	});
-	
+```	
 
 Swiping With Self Contained Views
 ---------------
 
 The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can swipe with self contained views like WebView as well. We simply have to add the SwipesView.onTouch static reference:
-	
+```
 	WebView wv = new WebView(context) {
         @Override public boolean onTouchEvent(MotionEvent event) {
         		SwipesView.onTouch(event);
             return super.onTouchEvent(event);
         }
     	};
-    	
+ ```   	
 ...or subclass instead:
-
+```
     	class CustomWebView extends WebView {
         @Override public boolean onTouchEvent(MotionEvent event) {
         		SwipesView.onTouch(event);
             return super.onTouchEvent(event);
         }
     	};
-	
+```	
 ...using the subclass you can then add the reference in XML:
-	
+```
     <com.operators.swipes.CustomWebView
         android:id="@+id/swipesWebView"
 		... />
-        
+```     
         
 Listening For Swipe Actions
 ---------------
@@ -120,7 +120,7 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 	
 	
 * First update your class to implement [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
-
+```
 	class YourClass implements SwipesView.OnSwipeListener {
 	
 		@Override public void onThresholdChange(View card, float threshold) {
@@ -135,35 +135,37 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 			// Handle some success by updating data set, or application state
 		}
 	}
-	
+```
 * Alternatively, you can update your interfaces to extend [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
 	
-* Next place the addSwipesListener reference along with your implementation of [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html). Once that is complete you are ready to listen for [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)), [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) or [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)).
+* Next place the addSwipesListener reference along with your implementation of [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html).
 
+* Once that is complete you are ready to listen for [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)), [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) or [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)).
+```
 	SwipesView.addSwipesListener(this);
-	
+```
 * The [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)) Swipe Action provides feedback on what amount the swipe is complete. An Example of this would look as follows:
-
+```
 	@Override public void onThresholdChange(View card, float threshold) {
 	
 		TextView someOverlayView = (TextView) card.findViewById(R.id.someOverlayView);
 		someOverlayView.setAlpha(threshold);// Set the alpha of some overlay view
 	}
-
+```
 * The [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the swipe is going. An Example of this would look as follows:
-
+```
 	@Override public void onDirectionSwipe(View card, Directions direction) {
 	
 		mSomeDirectionState.setState(direction);// Reset the direction state of some object		
 	}
-
+```
 * The [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the sucessful swipe was going. An Example of this would look as follows:
-
+```
 	@Override public void onSuccessfulSwipe(View card, Directions direction) {
 	
 		mSomeState.reset();// Reset the state of some object
 	}
-
+```
 
 Further Reading
 ---------------
