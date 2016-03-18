@@ -20,7 +20,7 @@ Or in an Android XML Layout:
     <?xml version="1.0" encoding="utf-8"?>
 	<com.operators.swipes.SwipesView 
 	    xmlns:android="http://schemas.android.com/apk/res/android"
-    		xmlns:swipes="http://schemas.android.com/apk/res/com.operators.swipes"
+	    xmlns:swipes="http://schemas.android.com/apk/res/com.operators.swipes"
 	    android:id="@+id/container"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
@@ -95,16 +95,16 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
         	SwipesView.onTouch(event);
             return super.onTouchEvent(event);
         }
-};
+	};
  ```   	
 ...or subclass instead:
 ```
-    	class CustomWebView extends WebView {
+	class CustomWebView extends WebView {
         @Override public boolean onTouchEvent(MotionEvent event) {
         	SwipesView.onTouch(event);
             return super.onTouchEvent(event);
         }
-};
+	};
 ```	
 ...using the subclass you can then add the reference in XML:
 ```
