@@ -91,29 +91,21 @@ Swiping With Self Contained Views
 The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can swipe with self contained views like WebView as well. We simply have to add the SwipesView.onTouch static reference:
 	
 	WebView wv = new WebView(context) {
-	
         @Override public boolean onTouchEvent(MotionEvent event) {
-        
         		SwipesView.onTouch(event);
             return super.onTouchEvent(event);
-            
         }
     	};
     	
 ...or subclass instead:
 
     	class CustomWebView extends WebView {
-    	
-    		public CustomWebView(Context context) {
-    			
-    		}
+    		...
         
         @Override
         public boolean onTouchEvent(MotionEvent event) {
-        
         		SwipesView.onTouch(event);
             return super.onTouchEvent(event);
-            
         }
     	};
 	
@@ -130,40 +122,37 @@ Listening For Swipe Actions
 The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can have multiple listeners, where Card components can listen for sucessful swipes as well as Activities or Fragments all simultaneously:
 	
 	
-* First update your class/interface to implement/extend [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
+* First update your class to implement [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
 
 	class YourClass implements SwipesView.OnSwipeListener {
-	
 		@Override public void onThresholdChange(View card, float threshold) {
-			
+			// Handle some threshold change like view alpha
 		}
 		
 		@Override public void onDirectionSwipe(View card, Directions direction) {
-			
+			// Handle some direction change like change indicator color
 		}
 		
 		@Override public void onSuccessfulSwipe(View card, Directions direction) {
-			
+			// Handle some success by updating data set, or application state
 		}
 	}
 	
+* Alternatively, you can update your interfaces to extend [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
+	
 	interface YourInterface extends SwipesView.OnSwipeListener {
 		@Override public void onThresholdChange(View card, float threshold);
-		
 		@Override public void onDirectionSwipe(View card, Directions direction);
-		
 		@Override public void onSuccessfulSwipe(View card, Directions direction);
 	}
 	
-* Next place the addSwipesListener reference along with the creation of your implementation of [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html). Once that is complete you are ready to listen for [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)), [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) or [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)).
+* Next place the addSwipesListener reference along with your implementation of [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html). Once that is complete you are ready to listen for [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)), [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) or [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)).
 
 	SwipesView.addSwipesListener(this);
-
 	
 * The [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)) Swipe Action provides feedback on what amount the swipe is complete. An Example of this would look as follows:
 
 	@Override public void onThresholdChange(View card, float threshold) {
-	
 		TextView someOverlayView = (TextView) card.findViewById(R.id.someOverlayView);
 		someOverlayView.setAlpha(threshold);// Set the alpha of some overlay view
 	}
@@ -171,14 +160,12 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 * The [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the swipe is going. An Example of this would look as follows:
 
 	@Override public void onDirectionSwipe(View card, Directions direction) {
-	
 		mSomeDirectionState.setState(direction);// Reset the direction state of some object		
 	}
 
 * The [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the sucessful swipe was going. An Example of this would look as follows:
 
 	@Override public void onSuccessfulSwipe(View card, Directions direction) {
-	
 		mSomeState.reset();// Reset the state of some object
 	}
 
