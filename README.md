@@ -91,23 +91,29 @@ Swiping With Self Contained Views
 The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can swipe with self contained views like WebView as well. We simply have to add the SwipesView.onTouch static reference:
 	
 	WebView wv = new WebView(context) {
+	
         @Override public boolean onTouchEvent(MotionEvent event) {
+        
         		SwipesView.onTouch(event);
             return super.onTouchEvent(event);
+            
         }
     	};
     	
 ...or subclass instead:
 
     	class CustomWebView extends WebView {
+    	
     		public CustomWebView(Context context) {
     			
     		}
         
         @Override
         public boolean onTouchEvent(MotionEvent event) {
+        
         		SwipesView.onTouch(event);
             return super.onTouchEvent(event);
+            
         }
     	};
 	
@@ -127,6 +133,7 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 * First update your class/interface to implement/extend [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
 
 	class YourClass implements SwipesView.OnSwipeListener {
+	
 		@Override public void onThresholdChange(View card, float threshold) {
 			
 		}
@@ -157,22 +164,28 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 	
 	* The [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)) Swipe Action provides feedback on what amount the swipe is complete. An Example of this would look as follows:
 
-		@Override public void onThresholdChange(View card, float threshold) {
-			TextView someOverlayView = (TextView) card.findViewById(R.id.someOverlayView);
-			someOverlayView.setAlpha(threshold);// Set the alpha of some overlay view
-		}
+	@Override public void onThresholdChange(View card, float threshold) {
+	
+		TextView someOverlayView = (TextView) card.findViewById(R.id.someOverlayView);
+		someOverlayView.setAlpha(threshold);// Set the alpha of some overlay view
+		
+	}
 
 	* The [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the swipe is going. An Example of this would look as follows:
 
-		@Override public void onDirectionSwipe(View card, Directions direction) {
-			mSomeDirectionState.setState(direction);// Reset the direction state of some object
-		}
+	@Override public void onDirectionSwipe(View card, Directions direction) {
+	
+		mSomeDirectionState.setState(direction);// Reset the direction state of some object
+		
+	}
 
 	* The [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the sucessful swipe was going. An Example of this would look as follows:
 
-		@Override public void onSuccessfulSwipe(View card, Directions direction) {
-			mSomeState.reset();// Reset the state of some object
-		}
+	@Override public void onSuccessfulSwipe(View card, Directions direction) {
+	
+		mSomeState.reset();// Reset the state of some object
+		
+	}
 
 
 Further Reading
