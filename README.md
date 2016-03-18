@@ -122,6 +122,7 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 * First update your class to implement [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
 
 	class YourClass implements SwipesView.OnSwipeListener {
+	
 		@Override public void onThresholdChange(View card, float threshold) {
 			// Handle some threshold change like view alpha
 		}
