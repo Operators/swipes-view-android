@@ -66,24 +66,85 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 
 	Button swipeLeftButton = new Button(context);
 	swipeLeftButton.setOnClickListener(new View.OnClickListener() {
-		@Override public void onClick(View v) { swipesView.onSwipeLeft(); }
+		@Override public void onClick(View v) { swipesView.performSwipeLeft(); }
 	});
 	
 	Button swipeRightButton = new Button(context);
 	swipeRightButton.setOnClickListener(new View.OnClickListener() {
-		@Override public void onClick(View v) { swipesView.onSwipeRight(); }
+		@Override public void onClick(View v) { swipesView.performSwipeRight(); }
 	});
 	
 	Button swipeUpButton = new Button(context);
 	swipeUpButton.setOnClickListener(new View.OnClickListener() {
-		@Override public void onClick(View v) { swipesView.onSwipeUp(); }
+		@Override public void onClick(View v) { swipesView.performSwipeUp(); }
 	});
 	
 	Button swipeDownButton = new Button(context);
 	swipeDownButton.setOnClickListener(new View.OnClickListener() {
-		@Override public void onClick(View v) { swipesView.onSwipeDown(); }
+		@Override public void onClick(View v) { swipesView.performSwipeDown(); }
 	});
 	
+
+Swiping With Self Contained Views
+---------------
+
+The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can swipe with self contained views like WebView as well. We simply have to add the SwipesView.onTouch static reference:
+	
+	WebView wv = new WebView(context) {
+        @Override
+        public boolean onTouchEvent(MotionEvent event) {
+        		SwipesView.onTouch(event);
+            return super.onTouchEvent(event);
+        }
+    	};
+    	
+...or subclass instead:
+    	class CustomWebView extends WebView {
+    		public CustomWebView(Context context) {
+    			
+    		}
+        
+        @Override
+        public boolean onTouchEvent(MotionEvent event) {
+        		SwipesView.onTouch(event);
+            return super.onTouchEvent(event);
+        }
+    	};
+	
+    <com.operators.swipes.CustomWebView
+        android:id="@+id/swipesWebView"
+		... />
+        
+        
+Listening For Swipe Actions
+---------------
+
+The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can have multiple listeners, where Card components can listen for sucessful swipes as well as Activities or Fragments simultaneously:
+	
+	
+* First update your class/interface to implement/extend [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
+
+	class YourClass implements SwipesView.OnSwipeListener {
+		...
+	}
+	
+	inteface YourInterface extends SwipesView.OnSwipeListener {
+		...
+	}
+	
+* Next add the addSwipesListener reference along with the creation of your implementation of [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html) and you are then ready to listen for [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)), [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) or 
+
+	SwipesView.addSwipesListener(this);
+	
+* The [onThresholdChange](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onThresholdChange(android.view.View, float)) Swipe Action provides feedback on what amount the swipe is complete. An Example of this would look as follows:
+
+
+* The [onDirectionSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onDirectionSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the swipe is going. An Example of this would look as follows:
+
+
+* The [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the sucessful swipe was going. An Example of this would look as follows:
+
+
 Further Reading
 ---------------
 
