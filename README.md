@@ -1,7 +1,7 @@
 # Swipes View Library (Android)
 [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
 
-![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016012902.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016013504.gif "SwipesView")
+![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016012902.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016013504.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160353.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160804.gif "SwipesView")
 
 Setup
 -----
@@ -116,8 +116,7 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 Listening For Swipe Actions
 ---------------
 
-The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can have multiple listeners, where Card components can listen for sucessful swipes as well as Activities or Fragments all simultaneously:
-	
+The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) can have multiple listeners. Card components (as well as Views, Activities or Fragments) can listen for swipes all simultaneously:
 	
 * First update your class to implement [SwipesView.OnSwipeListener](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html)
 ```
@@ -170,8 +169,12 @@ The [SwipesView](http://operators.github.io/swipes-view-android/com/operators/sw
 * The [onSuccessfulSwipe](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.OnSwipeListener.html#onSuccessfulSwipe(android.view.View, com.operators.swipes.SwipesView.Directions)) Swipe Action provides feedback on what direction the sucessful swipe was going. An Example of this would look as follows:
 ```
 	@Override public void onSuccessfulSwipe(View card, Directions direction) {
-	
-		mSomeState.reset();// Reset the state of some object
+		
+		// There needs to be a filter on the view state
+		Object tag = card.findViewById(R.id.youTubePresenter).getTag();
+		boolean isCurrentPreview = tag.equals(mCurrentPreview.getTag());
+		if(isCurrentPreview) mCurrentPreview.setTag(""); // Reset current view
+		
 	}
 ```
 
