@@ -1,7 +1,20 @@
 # Swipes View Library (Android)
-[SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
+[SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) (a Tinder-like View) displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
 
 ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016012902.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016013504.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160353.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160804.gif "SwipesView")
+
+On this page, you can:
+* [Download the latest version](https://github.com/Operators/swipes-view-android/files/183224/Swipes.zip) of the library
+* Download the [Swipes View Library and Eclipse Examples](https://github.com/Operators/swipes-view-android/files/183225/SwipesEclipseExamples.zip)
+* Or download the [Swipes View Library and Studio Examples](https://github.com/Operators/swipes-view-android/files/183223/SwipesStudioExamples.zip)
+* Check out [How to set up the SwipesView](https://github.com/Operators/swipes-view-android#setup)
+* Check out [How to pass data](https://github.com/Operators/swipes-view-android#passing-data)
+* Check out [How to automate swipes](https://github.com/Operators/swipes-view-android#automating-swipes)
+* Check out [How to swipe w/ WebView](https://github.com/Operators/swipes-view-android#swiping-with-self-contained-views)
+* Check out [How to listen for swipe actions](https://github.com/Operators/swipes-view-android#listening-for-swipe-actions)
+* Check out [our Further Reading section](https://github.com/Operators/swipes-view-android#further-reading)
+
+Happy Swiping, :)
 
 Setup
 -----
@@ -20,7 +33,7 @@ Or in an Android XML Layout:
     <?xml version="1.0" encoding="utf-8"?>
 	<com.operators.swipes.SwipesView 
 	    xmlns:android="http://schemas.android.com/apk/res/android"
-	    xmlns:swipes="http://schemas.android.com/apk/res/com.operators.swipes"
+	    xmlns:swipes="http://schemas.android.com/apk/res-auto"
 	    android:id="@+id/container"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
