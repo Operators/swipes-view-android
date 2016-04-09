@@ -1,6 +1,8 @@
 # Swipes View Library (Android)
 [SwipesView](http://operators.github.io/swipes-view-android/com/operators/swipes/SwipesView.html) (a Tinder-like View) displays **views (or cards) to be swiped** in all **directions of your choice** and also allows you to **programatically swipe** (with a button or a command).
 
+Looking for the [Swipes iOS Framework](https://github.com/Operators/swipes-view-ios)?
+
 ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016012902.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016013504.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160353.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160804.gif "SwipesView")
 
 On this page, you can:
