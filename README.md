@@ -6,9 +6,10 @@ Looking for the [Swipes iOS Framework](https://github.com/Operators/swipes-view-
 ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016012902.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03162016013504.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160353.gif "SwipesView") ![swipes](https://raw.githubusercontent.com/Operators/swipes-view-android/master/d2ucKOT49Hchristopher03212016160804.gif "SwipesView")
 
 On this page, you can:
-* [Download the latest version](https://github.com/Operators/swipes-view-android/files/183224/Swipes.zip) of the library
-* Download the [Swipes View Library and Eclipse Examples](https://github.com/Operators/swipes-view-android/files/183225/SwipesEclipseExamples.zip)
-* Or download the [Swipes View Library and Studio Examples](https://github.com/Operators/swipes-view-android/files/183223/SwipesStudioExamples.zip)
+* [Download the latest version](https://github.com/Operators/swipes-view-android/files/219974/Swipes.zip) of the library
+* Download the [Swipes View Library and Eclipse Examples](https://github.com/Operators/swipes-view-android/files/219977/SwipesEclipseExamples.zip)
+* Or download the [Swipes View Library and Studio Examples](https://github.com/Operators/swipes-view-android/files/219975/SwipesStudioExamples.zip)
+* Or maybe even download the [Swipes View Library w/ Pages Eclipse Example](https://github.com/Operators/swipes-view-android/files/219976/PagesEclipseExamples.zip)
 * Check out [How to set up the SwipesView](https://github.com/Operators/swipes-view-android#setup)
 * Check out [How to pass data](https://github.com/Operators/swipes-view-android#passing-data)
 * Check out [How to automate swipes](https://github.com/Operators/swipes-view-android#automating-swipes)
